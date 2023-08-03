@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+    <entry key="selectAllCategory">
+        SELECT
+               *
+          FROM TBL_CATEGORY
+    </entry>
+
+    <entry key="selectChoose"></entry>
+        SELECT
+               *
+          FROM TBL_CATEGORY
+         WHERE CATEGORY_CODE = ?
+
+</properties>
