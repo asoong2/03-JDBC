@@ -1,0 +1,63 @@
+package com.ohgiraffers.section01;
+
+import com.ohgiraffers.common.SearchCriteria;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Application {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        do {
+            System.out.println("========= 팀 프로젝트 관리 ==========");
+            System.out.println("1. 팀원 / 업무 정보 조회");
+            System.out.println("2. 신규 팀원 및 업무 추가");
+            System.out.println("3. 정보 수정");
+            System.out.println("4. 정보 삭제");
+            System.out.print("관리하고자 하는 번호를 입력하세요 : ");
+
+            int no = sc.nextInt();
+
+            switch (no) {
+                case 1 :selectInfo(); break;
+                default:
+                    System.out.println("잘못 된 메뉴를 선택하셨습니다.");
+            }
+        } while (true);
+    }
+
+    private static void selectInfo() {
+        Scanner sc = new Scanner(System.in);
+        PjController pjController = new PjController();
+        do{
+            System.out.println("========= 팀원 / 업무 정보 조회 ==========");
+            System.out.println("1. 전체 팀원 조회");
+            System.out.println("2. 전체 업무 조회");
+            System.out.println("3. 팀원 이름 혹은 업무명으로 검색하여 해당 목록 보여주기");
+            System.out.print("원하시는 메뉴를 선택해주세요 : ");
+            int no = sc.nextInt();
+            switch (no) {
+                case 1 : pjController.selectAllTeamMember(); break;
+                case 2 : pjController.selectAllTask(); break;
+                case 3 : pjController.searchName(inputSearchCriteria()); break;
+                case 9 : break;
+            }
+
+        } while (true);
+
+    }
+
+    private static SearchCriteria inputSearchCriteria() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("검색 기준을 입력해주세요(팀원명 / 업무명) : ");
+        String condition = sc.nextLine();
+        System.out.print("검색어를 입력해주세요 : ");
+        String value = sc.nextLine();
+
+        return new SearchCriteria(condition, value);
+    }
+
+}
