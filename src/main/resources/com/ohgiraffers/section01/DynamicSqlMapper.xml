@@ -14,13 +14,6 @@
         <result property="taskCode" column="TASK_CODE"/>
     </resultMap>
 
-    <resultMap id="taskResultMap" type="com.ohgiraffers.common.TaskDTO">
-        <id property="taskCode" column="TASK_CODE"/>
-        <result property="taskName" column="TASK_NAME"/>
-        <result property="deadline" column="DEADLINE"/>
-        <result property="completed" column="COMPLETED"/>
-    </resultMap>
-
     <select id="searchName" resultMap="teamResultMap" parameterType="SearchCriteria">
         SELECT
         ID
@@ -32,12 +25,14 @@
         <if test="condition == '업무명'">
             JOIN TASK USING(TASK_CODE)
         </if>
-        <if test="condition == '팀원명'">
-            WHERE NAME LIKE '%' || #{value} || '%'
-        </if>
-        <if test="condition == '업무명'">
-            AND TASK_NAME = #{value}
-        </if>
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="condition == '팀원명'">
+                NAME LIKE '%' || #{value} || '%'
+            </if>
+            <if test="condition == '업무명'">
+                AND TASK_NAME = #{value}
+            </if>
+        </trim>
         ORDER BY ID
     </select>
 

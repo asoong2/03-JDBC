@@ -4,30 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9452432d-538f-483f-9a53-aaf410d9af53" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/common/SearchCriteria.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/common/TaskDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/common/TeamMemberDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/common/Template.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/DynamicSqlMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/PjController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/PjMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/PjService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/PrintResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ohgiraffers/section01/DynamicSqlMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ohgiraffers/section01/PjMapper.xml" afterDir="false" />
+    <list default="true" id="9452432d-538f-483f-9a53-aaf410d9af53" name="변경" comment="1_team">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/config/connection-info.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/config/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/common/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/common/Template.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/PjController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/PjController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/PjMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/PjMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/PjService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/PjService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/PrintResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/PrintResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ohgiraffers/section01/DynamicSqlMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ohgiraffers/section01/DynamicSqlMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ohgiraffers/section01/PjMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ohgiraffers/section01/PjMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +58,7 @@
       <recent name="C:\Users\asoong\IdeaProjects\teamproject\src\main\resources\config" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ohgiraffers.common" />
       <recent name="com.ohgiraffers.section01" />
     </key>
   </component>
@@ -83,6 +71,30 @@
       <option name="presentableId" value="Default" />
       <updated>1691594304464</updated>
     </task>
+    <task id="LOCAL-00001" summary="1_team">
+      <option name="closed" value="true" />
+      <created>1691671019826</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1691671019826</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1_team" />
+    <option name="LAST_COMMIT_MESSAGE" value="1_team" />
   </component>
 </project>

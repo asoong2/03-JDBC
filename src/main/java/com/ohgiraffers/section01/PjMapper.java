@@ -9,5 +9,7 @@ import java.util.List;
 public interface PjMapper {
     List<TeamMemberDTO> selectAllTeamMember();
     List<TaskDTO> selectAllTask();
-
+    int insertTeam(TeamMemberDTO team);
+    int modifyTeam(TeamMemberDTO team);
+    int deleteTeam(int id);
 }

@@ -49,66 +49,40 @@ MenuMapper 인터페이스의 메소드 호출 시 실행 될 구문을 XML 파�
         ORDER BY TASK_CODE
     </select>
 
-
-
-
-    <select id="searchName" resultMap="teamResultMap" parameterType="SearchCriteria">
-        SELECT
-        ID
+    <insert id="insertTeam">
+        INSERT
+        INTO TEAM_MEMBER
+        (
+          ID
         , NAME
         , EMAIL
         , PHONE
         , TASK_CODE
+        )
+        VALUES
+        (
+        TM_SEQ.NEXTVAL
+        , #{ name }
+        , #{ email }
+        , #{ phone }
+        , #{ taskCode }
+        )
+    </insert>
+
+    <update id="modifyTeam">
+        UPDATE
+        TEAM_MEMBER
+        SET NAME = #{ name }
+        , EMAIL = #{ email }
+        , PHONE = #{ phone }
+        , TASK_CODE = #{ taskCode }
+        WHERE ID = #{ id }
+    </update>
+
+    <delete id="deleteTeam">
+        DELETE
         FROM TEAM_MEMBER
-        <if test="condition == '업무명'">
-            JOIN TASK USING(TASK_CODE)
-        </if>
-        <if test="condition == '팀원명'">
-            WHERE NAME LIKE '%' || #{value} || '%'
-        </if>
-        <if test="condition == '업무명'">
-            AND TASK_NAME = #{value}
-        </if>
-        ORDER BY ID
-    </select>
-
-<!--    &lt;!&ndash;-->
-<!--    insert, update, delete의 경우 resultType은 작성하지 않고, 기본적으로 _int 로 수행 결과를 반환한다.-->
-<!--    파라미터로 전달 된 DTO의 필드명으로 값을 바인딩 해야 하며, getter를 내부적으로 이용하므로 getter가 없으면 에러가 발생한다.-->
-<!--    &ndash;&gt;-->
-<!--    <insert id="insertMenu" parameterType="com.ohgiraffers.section03.remix.MenuDTO">-->
-<!--        INSERT-->
-<!--        INTO TBL_MENU-->
-<!--        (-->
-<!--        MENU_CODE-->
-<!--        , MENU_NAME-->
-<!--        , MENU_PRICE-->
-<!--        , CATEGORY_CODE-->
-<!--        , ORDERABLE_STATUS-->
-<!--        )-->
-<!--        VALUES-->
-<!--        (-->
-<!--        SEQ_MENU_CODE.NEXTVAL-->
-<!--        , #{ name }-->
-<!--        , #{ price }-->
-<!--        , #{ categoryCode }-->
-<!--        , 'Y'-->
-<!--        )-->
-<!--    </insert>-->
-
-<!--    <update id="updateMenu" parameterType="com.ohgiraffers.section03.remix.MenuDTO">-->
-<!--        UPDATE-->
-<!--        TBL_MENU-->
-<!--        SET MENU_NAME = #{ name }-->
-<!--        , MENU_PRICE = #{ price }-->
-<!--        , CATEGORY_CODE = #{ categoryCode }-->
-<!--        WHERE MENU_CODE = #{ code }-->
-<!--    </update>-->
-
-<!--    <delete id="deleteMenu" parameterType="_int">-->
-<!--        DELETE-->
-<!--        FROM TBL_MENU-->
-<!--        WHERE MENU_CODE = #{ code }-->
-<!--    </delete>-->
+        WHERE ID = #{ id }
+    </delete>
 
 </mapper>

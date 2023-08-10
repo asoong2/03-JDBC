@@ -2,7 +2,6 @@ package com.ohgiraffers.section01;
 
 import com.ohgiraffers.common.TaskDTO;
 import com.ohgiraffers.common.TeamMemberDTO;
-import com.ohgiraffers.common.Template;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
@@ -33,5 +32,58 @@ public class PjService {
 
         return taskList;
 
+    }
+
+    public boolean registTeam(TeamMemberDTO team) {
+        SqlSession sqlSession = getSqlSession();
+        pjMapper = sqlSession.getMapper(PjMapper.class);
+
+        int result = pjMapper.insertTeam(team);
+
+        if (result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0;
+
+    }
+
+    public boolean modifyTeam(TeamMemberDTO team) {
+
+        SqlSession sqlSession = getSqlSession();
+        pjMapper = sqlSession.getMapper(PjMapper.class);
+
+        int result = pjMapper.modifyTeam(team);
+
+        if (result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0;
+    }
+
+    public boolean deleteTeam(int id) {
+        SqlSession sqlSession = getSqlSession();
+        pjMapper = sqlSession.getMapper(PjMapper.class);
+
+        int result = pjMapper.deleteTeam(id);
+
+        if (result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0;
     }
 }
