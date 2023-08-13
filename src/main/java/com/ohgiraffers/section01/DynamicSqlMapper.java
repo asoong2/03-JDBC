@@ -9,3 +9,4 @@ public interface DynamicSqlMapper {
 
     List<TeamMemberDTO> searchName(SearchCriteria searchCriteria);
 }
+

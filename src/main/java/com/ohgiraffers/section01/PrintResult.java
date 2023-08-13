@@ -39,5 +39,4 @@ public class PrintResult {
         System.out.println(errorMessage);
     }
 
-
 }
