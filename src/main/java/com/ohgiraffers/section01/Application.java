@@ -42,13 +42,14 @@ public class Application {
             System.out.println("1. 전체 팀원 조회");
             System.out.println("2. 전체 업무 조회");
             System.out.println("3. 팀원 이름 검색 혹은 업무에 배정된 팀원 확인");
+            System.out.println("9. 이전 메뉴로");
             System.out.print("원하시는 메뉴를 선택해주세요 : ");
             int no = sc.nextInt();
             switch (no) {
                 case 1 : pjController.selectAllTeamMember(); break;
                 case 2 : pjController.selectAllTask(); break;
                 case 3 : pjController.searchName(inputSearchCriteria()); break;
-                case 9 : break;
+                case 9 : return;
             }
 
         } while (true);
