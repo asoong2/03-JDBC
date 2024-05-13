@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="remix.CategoryMapper">
+
+    <resultMap id="categoryResultMap" type="remix.CategoryDTO">
+        <id property="categoryCode" column="CATEGORY_CODE"/>
+        <result property="categoryName" column="CATEGORY_NAME"/>
+        <result property="refCategoryCode" column="REF_CATEGORY_CODE"/>
+    </resultMap>
+
+    <select id="selectAllCategory" resultMap="categoryResultMap">
+        SELECT
+               CATEGORY_CODE
+             , CATEGORY_NAME
+             , REF_CATEGORY_CODE
+        FROM TBL_CATEGORY
+        ORDER BY CATEGORY_CODE
+    </select>
+
+    <select id="selectCategoryByCode" parameterType="_int" resultMap="categoryResultMap">
+        SELECT
+        CATEGORY_CODE
+        , CATEGORY_NAME
+        , REF_CATEGORY_CODE
+        FROM TBL_CATEGORY
+        WHERE CATEGORY_CODE = #{ code }
+    </select>
+
+    <insert id="insertCategory" parameterType="remix.CategoryDTO">
+        INSERT
+          INTO TBL_CATEGORY
+        (
+          CATEGORY_CODE
+        , CATEGORY_NAME
+        , REF_CATEGORY_CODE
+        )
+        VALUES
+        (
+          SEQ_CATEGORY_CODE.NEXTVAL
+        , #{categoryName}
+        , null
+        )
+    </insert>
+
+    <update id="updateCategory" parameterType="remix.CategoryDTO">
+        UPDATE
+              TBL_CATEGORY
+           SET CATEGORY_NAME = #{categoryName}
+         WHERE CATEGORY_CODE = #{categoryCode}
+    </update>
+
+    <delete id="deleteCategory" parameterType="_int">
+        DELETE
+          FROM TBL_CATEGORY
+         WHERE CATEGORY_CODE = #{categoryCode}
+    </delete>
+
+</mapper>
