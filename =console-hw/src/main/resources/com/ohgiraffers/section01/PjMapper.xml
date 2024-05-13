@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+MenuMapper 인터페이스의 메소드 호출 시 실행 될 구문을 XML 파일에 기재하는 방법
+1. Mapper 인터페이스와 동일한 패키지에 위치해야 한다.
+2. Mapper 인터페이스의 풀 네임을 네임스페이스로 지정해야 한다.
+3. Mapper 인터페이스와 XML의 이름이 동일해야 한다.
+4. 작성한 메소드의 이름과 id가 일치하고, 리턴 타입이 일치하는 쿼리문을 모두 작성해야 한다.
+-->
+<mapper namespace="com.ohgiraffers.section01.PjMapper">
+
+    <!-- 조회한 컬럼과 DTO를 매핑시키기 위한 설정이다. -->
+    <resultMap id="teamResultMap" type="com.ohgiraffers.common.TeamMemberDTO">
+        <id property="id" column="ID"/>
+        <result property="name" column="NAME"/>
+        <result property="email" column="EMAIL"/>
+        <result property="phone" column="PHONE"/>
+        <result property="taskCode" column="TASK_CODE"/>
+    </resultMap>
+
+    <resultMap id="taskResultMap" type="com.ohgiraffers.common.TaskDTO">
+        <id property="taskCode" column="TASK_CODE"/>
+        <result property="taskName" column="TASK_NAME"/>
+        <result property="deadline" column="DEADLINE"/>
+        <result property="completed" column="COMPLETED"/>
+    </resultMap>
+
+
+    <select id="selectAllTeamMember" resultMap="teamResultMap">
+        SELECT
+               ID
+             , NAME
+             , EMAIL
+             , PHONE
+             , TASK_CODE
+        FROM TEAM_MEMBER
+        ORDER BY ID
+    </select>
+
+    <select id="selectAllTask" resultMap="taskResultMap">
+        SELECT
+               TASK_CODE
+             , TASK_NAME
+             , DEADLINE
+             , COMPLETED
+            FROM TASK
+        ORDER BY TASK_CODE
+    </select>
+
+    <insert id="insertTeam">
+        INSERT
+        INTO TEAM_MEMBER
+        (
+          ID
+        , NAME
+        , EMAIL
+        , PHONE
+        , TASK_CODE
+        )
+        VALUES
+        (
+        TM_SEQ.NEXTVAL
+        , #{ name }
+        , #{ email }
+        , #{ phone }
+        , #{ taskCode }
+        )
+    </insert>
+
+    <update id="modifyTeam">
+        UPDATE
+        TEAM_MEMBER
+        SET NAME = #{ name }
+        , EMAIL = #{ email }
+        , PHONE = #{ phone }
+        , TASK_CODE = #{ taskCode }
+        WHERE ID = #{ id }
+    </update>
+
+    <delete id="deleteTeam">
+        DELETE
+        FROM TEAM_MEMBER
+        WHERE ID = #{ id }
+    </delete>
+
+</mapper>
